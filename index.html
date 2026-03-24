@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kit de IA para Empresarios | Cámara de Comercio de Casanare</title>
+  <style>
+    :root {
+      --azul-oscuro: #003366;
+      --azul-medio: #0056b3;
+      --azul-claro: #4da6ff;
+      --fondo-claro: #f5f7fa;
+      --blanco: #ffffff;
+      --gris-texto: #6b7280;
+      --sombra-suave: 0 6px 20px rgba(0, 51, 102, 0.08);
+      --radio: 14px;
+      --ancho-max: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background: var(--fondo-claro);
+    }
+
+    .container {
+      width: min(92%, var(--ancho-max));
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-medio));
+      color: var(--blanco);
+      padding: 22px 0 18px;
+      box-shadow: var(--sombra-suave);
+    }
+
+    .marca {
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+
+    .titulo-principal {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      margin-bottom: 8px;
+    }
+
+    .subtitulo-principal {
+      color: #dbeafe;
+      max-width: 700px;
+    }
+
+    .hero {
+      margin: 28px auto 8px;
+      padding: clamp(24px, 5vw, 46px);
+      background: var(--blanco);
+      border-radius: var(--radio);
+      box-shadow: var(--sombra-suave);
+      border: 1px solid #e5e7eb;
+    }
+
+    .hero h2 {
+      color: var(--azul-oscuro);
+      font-size: clamp(1.5rem, 3.2vw, 2rem);
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: var(--gris-texto);
+      max-width: 760px;
+      font-size: 1.05rem;
+    }
+
+    .menu-tarjetas {
+      margin: 24px auto 8px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+    }
+
+    .menu-tarjetas a {
+      text-decoration: none;
+      background: var(--blanco);
+      color: var(--azul-oscuro);
+      padding: 14px 12px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-align: center;
+      border: 1px solid #dbeafe;
+      box-shadow: var(--sombra-suave);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .menu-tarjetas a:hover,
+    .menu-tarjetas a:focus {
+      transform: translateY(-2px);
+      background: #eef6ff;
+      box-shadow: 0 10px 20px rgba(0, 86, 179, 0.12);
+    }
+
+    section {
+      margin: 28px auto;
+      background: var(--blanco);
+      border-radius: var(--radio);
+      box-shadow: var(--sombra-suave);
+      border: 1px solid #e5e7eb;
+      padding: clamp(22px, 4.5vw, 36px);
+    }
+
+    section h3 {
+      color: var(--azul-oscuro);
+      margin-bottom: 10px;
+      font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+    }
+
+    .texto-simple {
+      color: var(--gris-texto);
+      margin-bottom: 18px;
+      max-width: 830px;
+    }
+
+    .bloque-codigo {
+      background: #111827;
+      color: #e5e7eb;
+      border-radius: 10px;
+      padding: 14px 16px;
+      overflow-x: auto;
+      margin-top: 10px;
+      border-left: 4px solid var(--azul-claro);
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.95rem;
+      white-space: pre-wrap;
+    }
+
+    .grid-tarjetas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .tarjeta {
+      background: #fbfdff;
+      border: 1px solid #dbeafe;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 5px 14px rgba(0, 51, 102, 0.06);
+    }
+
+    .tarjeta h4 {
+      color: var(--azul-medio);
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+    }
+
+    .tarjeta p {
+      color: var(--gris-texto);
+      font-size: 0.96rem;
+    }
+
+    .diccionario .tarjeta {
+      background: var(--blanco);
+    }
+
+    .diccionario .tarjeta h4 {
+      color: var(--azul-oscuro);
+    }
+
+    footer {
+      margin-top: 26px;
+      background: var(--azul-oscuro);
+      color: var(--blanco);
+      padding: 22px 0;
+      text-align: center;
+    }
+
+    footer strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1.03rem;
+    }
+
+    footer p {
+      color: #dbeafe;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      .menu-tarjetas a {
+        padding: 12px 10px;
+        font-size: 0.95rem;
+      }
+
+      .bloque-codigo {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <p class="marca">Cámara de Comercio de Casanare</p>
+      <h1 class="titulo-principal">Kit de IA para Empresarios</h1>
+      <p class="subtitulo-principal">Herramientas prácticas para usar inteligencia artificial en su negocio</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Domine la Inteligencia Artificial sin ser experto</h2>
+      <p>Aprenda a crear publicidad, atender clientes y mejorar su negocio usando IA. Esta guía está pensada para empresarios principiantes, con explicaciones simples y ejemplos prácticos.</p>
+    </section>
+
+    <nav class="menu-tarjetas" aria-label="Navegación principal del kit">
+      <a href="#prompt">¿Qué es un Prompt?</a>
+      <a href="#como-usar">Cómo usar IA</a>
+      <a href="#rafa">Método RAFA</a>
+      <a href="#diccionario">Diccionario</a>
+      <a href="#prompts">Prompts</a>
+    </nav>
+
+    <section id="prompt">
+      <h3>¿Qué es un Prompt?</h3>
+      <p class="texto-simple">Un <strong>prompt</strong> es una instrucción que usted le da a una herramienta de IA para obtener un resultado. Entre más claro sea el mensaje, mejor será el resultado.</p>
+
+      <div class="bloque-codigo"><strong>Ejemplo malo:</strong>
+"Hazme una publicidad"
+
+<strong>Ejemplo bueno:</strong>
+"Crea un anuncio para Facebook de una panadería llamada Dulce Amanecer, dirigido a familias de Yopal, destacando pan fresco desde las 6:00 a.m. con tono cercano y confiable."</div>
+    </section>
+
+    <section id="como-usar">
+      <h3>Cómo escribir un Prompt</h3>
+      <p class="texto-simple">Para obtener mejores resultados con IA, incluya estos puntos en su solicitud.</p>
+      <div class="grid-tarjetas">
+        <article class="tarjeta">
+          <h4>Qué quiere crear</h4>
+          <p>Ejemplo: un anuncio, un texto para redes, un banner o un video corto.</p>
+        </article>
+        <article class="tarjeta">
+          <h4>Para qué lo necesita</h4>
+          <p>Explique el objetivo: vender más, atraer clientes nuevos o informar una promoción.</p>
+        </article>
+        <article class="tarjeta">
+          <h4>Información del negocio</h4>
+          <p>Incluya nombre, ciudad, tipo de cliente, producto o servicio principal.</p>
+        </article>
+        <article class="tarjeta">
+          <h4>Estilo visual</h4>
+          <p>Indique si lo quiere elegante, cercano, moderno, formal o llamativo.</p>
+        </article>
+        <article class="tarjeta">
+          <h4>Qué NO quiere</h4>
+          <p>Aclare límites: no colores fuertes, no lenguaje técnico, no textos largos.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="rafa">
+      <h3>Método RAFA</h3>
+      <p class="texto-simple">Use este método simple para redactar mejores instrucciones y ahorrar tiempo.</p>
+      <div class="grid-tarjetas">
+        <article class="tarjeta">
+          <h4>R - Rol</h4>
+          <p>Indique quién debe actuar: “Actúa como experto en marketing para pymes”.</p>
+        </article>
+        <article class="tarjeta">
+          <h4>A - Acción</h4>
+          <p>Diga exactamente qué necesita: “Crea un texto para promocionar mi servicio”.</p>
+        </article>
+        <article class="tarjeta">
+          <h4>F - Formato</h4>
+          <p>Pida el resultado con estructura: lista, párrafo corto, guion o tabla simple.</p>
+        </article>
+        <article class="tarjeta">
+          <h4>A - Ajustes</h4>
+          <p>Agregue detalles finales: tono, longitud, público y elementos que desea evitar.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="diccionario" class="diccionario">
+      <h3>Diccionario básico</h3>
+      <div class="grid-tarjetas">
+        <article class="tarjeta"><h4>Prompt</h4><p>Instrucción que usted le da a la IA.</p></article>
+        <article class="tarjeta"><h4>IA</h4><p>Tecnología que ayuda a crear textos, imágenes y más.</p></article>
+        <article class="tarjeta"><h4>Banner</h4><p>Imagen publicitaria para web o redes sociales.</p></article>
+        <article class="tarjeta"><h4>Generar</h4><p>Crear un contenido nuevo desde cero.</p></article>
+        <article class="tarjeta"><h4>Editar</h4><p>Mejorar o corregir un contenido existente.</p></article>
+        <article class="tarjeta"><h4>Cinematográfico</h4><p>Estilo visual más profesional, con aspecto de película.</p></article>
+      </div>
+    </section>
+
+    <section id="prompts">
+      <h3>Prompts listos para usar</h3>
+      <p class="texto-simple">Copie, pegue y reemplace los datos entre corchetes con la información de su negocio.</p>
+
+      <div class="bloque-codigo">A) Banner
+"Crea un banner horizontal para un negocio llamado [NOMBRE], ubicado en [CIUDAD], que promocione [PRODUCTO/SERVICIO]. Usa un estilo limpio y profesional, con colores azules y un mensaje principal: [PROMOCIÓN]."</div>
+
+      <div class="bloque-codigo">B) Imagen producto
+"Mejora esta imagen de producto para que se vea más profesional, con mejor iluminación, fondo limpio y apariencia comercial para redes sociales."</div>
+
+      <div class="bloque-codigo">C) Video
+"Crea un video corto promocional de 15 segundos para [NOMBRE DEL NEGOCIO], destacando [PRODUCTO/SERVICIO], con tono cercano, música suave y mensaje final de contacto."</div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <strong>Cámara de Comercio de Casanare</strong>
+      <p>Transformación digital empresarial</p>
+    </div>
+  </footer>
+</body>
+</html>
